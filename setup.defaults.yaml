@@ -3,6 +3,11 @@
 
 profile: all-local
 
+auth:
+  # none = skip Google sign-in (local web + local API worker + Tauri)
+  # google = required for Cloudflare Pages / Worker production
+  mode: none
+
 web:
   mode: local
   url: http://localhost:5173
