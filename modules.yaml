@@ -1,0 +1,59 @@
+# Pocket Agent workspace modules — sibling repos under the org folder.
+# Installed by: pocket-agent init | pocket-agent wizard
+# Default source: latest GitHub release tarball (curl), fallback shallow git clone.
+
+org: pocket-agent
+
+modules:
+  agent:
+    github: pocket-agent/pocket-agent
+    path: pocket-agent
+    description: Python Pocket Node — LLM, tools, memory, pocket-agent serve
+    deploy: none
+    enabled: false  # present in full workspace clone
+
+  web:
+    github: pocket-agent/pocket-agent-web-app
+    path: pocket-agent-web-app
+    description: React dashboard — Google OAuth, calls API worker
+    deploy: cloudflare-pages
+    enabled: true
+
+  api:
+    github: pocket-agent/pocket-agent-api-app
+    path: pocket-agent-api-app
+    description: Hono Worker — OAuth verify, proxy to Pocket Node
+    deploy: cloudflare-worker
+    stack: hono
+    enabled: true
+
+  cli:
+    github: pocket-agent/pocket-agent-cli
+    path: pocket-agent-cli
+    description: Terminal client — profiles, status, stack helper
+    deploy: none
+    enabled: true
+
+  desktop:
+    github: pocket-agent/pocket-agent-desktop-app
+    path: pocket-agent-desktop-app
+    description: Tauri shell embedding pocket-agent-web-app
+    deploy: none
+    enabled: true
+
+  wizard:
+    github: pocket-agent/pocket-agent-wizard
+    path: pocket-agent-wizard
+    description: Workspace setup wizard UI (liquid glass)
+    deploy: none
+    enabled: false  # present in full workspace clone
+
+  sdk:
+    github: pocket-agent/pocket-agent-sdk
+    path: pocket-agent-sdk
+    description: Shared TypeScript/Python types and JSON schemas
+    deploy: none
+    enabled: false  # present in full workspace clone
+
+pocket_node:
+  local_url: http://127.0.0.1:8787
