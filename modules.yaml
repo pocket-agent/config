@@ -5,6 +5,20 @@
 org: pocket-agent
 
 modules:
+  config:
+    github: pocket-agent/config
+    path: config
+    description: Workspace module registry and connection profile defaults
+    deploy: none
+    enabled: false  # clone first into workspace root
+
+  scripts:
+    github: pocket-agent/scripts
+    path: scripts
+    description: Local setup and dev stack scripts (setup-local, dev-desktop)
+    deploy: none
+    enabled: true
+
   agent:
     github: pocket-agent/pocket-agent
     path: pocket-agent
