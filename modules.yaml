@@ -69,5 +69,19 @@ modules:
     deploy: none
     enabled: false  # present in full workspace clone
 
+  landing:
+    github: pocket-agent/pocket-agent-landing-page
+    path: pocket-agent-landing-page
+    description: Marketing site and download links (Cloudflare Pages)
+    deploy: cloudflare-pages
+    enabled: true
+
+  installer:
+    github: pocket-agent/pocket-agent-installer
+    path: pocket-agent-installer
+    description: Native Tauri Setup app (wizard window, not browser)
+    deploy: none
+    enabled: true
+
 pocket_node:
   local_url: http://127.0.0.1:8787
